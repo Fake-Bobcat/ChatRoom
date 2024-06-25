@@ -1,7 +1,5 @@
 import socket
 import json
-import random
-import sys
 
 from _thread import *
 
