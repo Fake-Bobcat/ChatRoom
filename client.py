@@ -3,7 +3,7 @@ import json
 
 from _thread import *
 
-import pygame, pygame.freetype
+import pygame
 
 pygame.init()
 
@@ -121,7 +121,7 @@ def Main():
     s.sendto(json.dumps(tosend).encode("utf-8"), server)
     
     data, addr = s.recvfrom(1024) # Wait until the server allows the player to join, if username is taken then break
-    data = json.loads(data)
+    data = json.loads(data.decode("utf-8"))
     if data == "Taken":
         print("Username Is Already Taken.")
         return
